@@ -9,6 +9,7 @@ _ReSharper*
 *.vcxproj*
 *.sln
 .vs
+.vscode
 CMakeSettings.json
 Win32
 x64
@@ -100,4 +101,3 @@ tests/title
 tests/triangle-vulkan
 tests/window
 tests/windows
-
