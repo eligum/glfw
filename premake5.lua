@@ -1,11 +1,10 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "Off"
-	location "../../../build" -- not the best way to do it but the only one I can think of right now
+	location "../../../build" -- not the most clean way to do it but the fastest I can think of right now
 
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/{%prf.name}")
-	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/{%prf.name}")
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -30,7 +29,6 @@ project "GLFW"
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
-		staticruntime "On"
 
 		files
 		{
@@ -51,8 +49,8 @@ project "GLFW"
 		}
 
 	filter "system:windows"
-		systemversion "latest"
 		staticruntime "On"
+		systemversion "latest"
 
 		files
 		{
@@ -64,8 +62,6 @@ project "GLFW"
 			"src/win32_thread.c",
 			"src/win32_window.c",
 			"src/wgl_context.c"
-			-- "src/egl_context.c",
-			-- "src/osmesa_context.c"
 		}
 
 		defines
